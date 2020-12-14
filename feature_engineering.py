@@ -73,7 +73,7 @@ def main():
 
     # text features
     # file names
-    file_names = os.listdir(os.path.join(data_path, "raw_text"))
+    file_names = ["Lisa_tweets.csv", "OilPrice_tweets.csv", "SentimentTrader_tweets.csv", "YahooFinance_tweets.csv"]
 
     print("\nText features:")
     # process raw_text
@@ -94,7 +94,7 @@ def main():
 
     # assemble to data frame
     print("\nAssemble to a dataframe:")
-    names = ["Lisa", "OilPrice", "SentiTrader", "Yahoo"]
+    names = ["Lisa", "OilPrice", "SenTrader", "Yahoo"]
     for i in range(len(processes_text)):
         cur_pol_name = names[i] + "_Pol"
         cur_sub_name = names[i] + "_Sub"
@@ -106,10 +106,10 @@ def main():
     col = np.shape(market_features)[1]
     row = np.shape(market_features)[0]
 
-    y_part = market_features[1:row, 0:2]
+    y_part = market_features.iloc[1:row, 0:2]
     y_part = y_part.reset_index(drop=True)
 
-    x_part = market_features[0:market_features, 2:col]
+    x_part = market_features.iloc[0:row-1, 2:col]
     x_part = x_part.reset_index(drop=True)
 
     features = pd.concat([y_part, x_part], axis=1)
