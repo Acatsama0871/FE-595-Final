@@ -72,8 +72,8 @@ download the repository and run code in following way:
 ```
 1. twitter_downloads.py
 2. feature_engineering.py
-3. Model_train_P1.ipynb
-4. Model_train_P2.ipynb
+3. Model_train -> Model_train_P1.ipynb
+4. Model_train -> Model_train_P2.ipynb
 ```
 
 ### Contributors
